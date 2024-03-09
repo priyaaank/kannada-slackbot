@@ -1,16 +1,12 @@
 package me.priyaaank
 
 import io.ktor.server.application.*
-import io.ktor.server.engine.*
-import io.ktor.server.netty.*
-import me.priyaaank.plugins.*
+import me.priyaaank.plugins.configureRouting
+import me.priyaaank.plugins.configureSerialization
 
-fun main() {
-    embeddedServer(Netty, port = 8080, host = "0.0.0.0", module = Application::module)
-        .start(wait = true)
-}
+fun main(args: Array<String>): Unit = io.ktor.server.netty.EngineMain.main(args)
 
-@Suppress("unused")
 fun Application.module() {
     configureRouting()
+    configureSerialization()
 }

@@ -1,13 +1,11 @@
 package me.priyaaank.plugins
 
-import io.ktor.server.routing.*
-import io.ktor.server.response.*
 import io.ktor.server.application.*
+import io.ktor.server.routing.*
+import me.priyaaank.routes.learnerRouting
 
 fun Application.configureRouting() {
     routing {
-        get("/") {
-            call.respondText("Hello World")
-        }
+        learnerRouting()
     }
 }
